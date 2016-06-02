@@ -1,26 +1,10 @@
-# CNP UI!
+# Boilerplate for react application + redux + react-router + material ui + istanbul
 
 ## Installations & Scripts
 * Install and update packages: `npm install` from root folder.
 * Run server on local code (/src folder): `npm start -s`
 * Run server on production code (/dist folder): `npm run build`
 * When installing new npm package add `--save` so it will be added to the package.json file
-
-## Global components & proptypes
-Currently we have two top parent components: MasterApp & LoginRequiredApp.
-
-#####MasterApp
-MasterApp is the top most component of our application and is used to display notifications and loaders on each page. This component passes to each child component the following properties in a 'shared' property:
-* `showNotification(message, type)` - Display a notification at the bottom of the page with the given 'message' value. You can pass type='error' to display the notification is error mode, currently in red.
-* `showLoader()`
-* `hideLoader()`
-* `handleServerError(serverResponse, messageType)` - Responsible for displaying server errors. Usually translates all the errors (array of strings usually) comming from the server into a string to be displayed using the showNotification() method.
-
-Usage example: On the LoginPage component, which is a child of MasterApp, a notification is shown with this simple code - `this.props.shared.showNotification(errorMessage, "error")`
-
-#####LoginRequiredApp
-This component is shared between all routes that needs a logged in user. These routes are nested under /app/ url. If a user which did not logged in will try to access such page, he will be redirected to the login page.
-This component's childs receives the same props the MasterApp passes under 'shared' prop. In addition, this component holds the logged which being used in the navigation bar.
 
 ###package.json
 
@@ -60,13 +44,3 @@ This component's childs receives the same props the MasterApp passes under 'shar
 │   ├── src_server.js         # Starts dev webserver with hot reloading and opens your app in your default browser
 └── webpack.config.js         # Configures webpack
 ```
-
-###Useful links
-
-* [Thinking In React](https://facebook.github.io/react/docs/thinking-in-react.html)
-* [JSX HTML attributes](https://facebook.github.io/react/docs/tags-and-attributes.html)
-* [React Router docs](https://github.com/reactjs/react-router/tree/master/docs/guides)
-* [Redux](http://redux.js.org/docs/api/index.html)
-* [Material UI](http://www.material-ui.com/#/components/app-bar)
-* [Material Colors](http://www.material-ui.com/#/customization/colors)
-* [Material Icons](https://design.google.com/icons/)
